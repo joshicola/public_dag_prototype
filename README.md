@@ -1,6 +1,8 @@
 # Directed Acyclic Graphs for Flywheel Gears
 
-This library provides a framework for creating and executing Directed Acyclic Graphs (DAGs) with Flywheel Gears, enabling efficient and flexible management of complex workflows involving multiple gears.
+This library provides a framework for creating and executing Directed Acyclic Graphs
+(DAGs) with Flywheel Gears, enabling efficient and flexible management of complex
+workflows involving multiple gears.
 
 ## Quick Start
 
@@ -34,7 +36,8 @@ from dag_objects import GraphTemplate, Node, Edge
 
 ## Background
 
-Flywheel's "Gear Rule" utility triggers gears based on file-based conditions, which can be limiting for complex workflows. DAGs provide a more structured approach where:
+Flywheel's "Gear Rule" utility triggers gears based on file-based conditions, which can
+be limiting for complex workflows. DAGs provide a more structured approach where:
 
 - Each gear has dependencies (inputs/configs) and produces outputs
 - Dependencies and outputs can be used by downstream gears
@@ -44,7 +47,9 @@ Flywheel's "Gear Rule" utility triggers gears based on file-based conditions, wh
 ## Key Components
 
 ### Nodes
+
 A node represents a gear with properties:
+
 - `gear`: The associated gear
 - `graph_inputs`: Required inputs
 - `fixed_inputs`: Fixed inputs
@@ -52,7 +57,9 @@ A node represents a gear with properties:
 - `job`: Associated job
 
 ### Edges
+
 An edge represents a dependency between nodes with properties:
+
 - `source`: Source node
 - `target`: Target node
 - `graph_inputs`: Required inputs with:
@@ -62,7 +69,9 @@ An edge represents a dependency between nodes with properties:
   - `conditions`: Conditions for edge satisfaction
 
 ### Graph Template
-Hosts nodes and edges, allowing parallel execution of multiple graphs based on triggering jobs.
+
+Hosts nodes and edges, allowing parallel execution of multiple graphs based on
+triggering jobs.
 
 ## Creating a Graph
 
@@ -111,9 +120,11 @@ A graph can be visualized using the DOT language:
 
 ## Executing a Graph
 
-These graphs can be as simple as a single gear or as complex as a multi-gear workflow. The example above is a simple workflow for neuro imaging data QC.
+These graphs can be as simple as a single gear or as complex as a multi-gear workflow.
+The example above is a simple workflow for neuro imaging data QC.
 
 The DAG engine:
+
 1. Checks dependencies of each gear
 2. Launches gears when dependencies are met
 3. Monitors completion and launches downstream gears
@@ -128,6 +139,7 @@ An executing graph can be visualized using the DOT language:
 ![Running DAG](image-1.png)
 
 Node colors indicate status:
+
 - Black: Waiting
 - Blue: Running
 - Green: Finished
@@ -137,9 +149,12 @@ Edge numbers show jobs traversing that path.
 
 ## More Complex Workflows
 
-More complicated workflows (e.g. [Adolescent Brain Cognitive Development (ABCD) Study](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=6981278_nihms-1543097-f0001.jpg)) are also possible.
+More complicated workflows (e.g. [Adolescent Brain Cognitive Development (ABCD)
+Study](https://www.ncbi.nlm.nih.gov/core/lw/2.0/html/tileshop_pmc/tileshop_pmc_inline.html?title=Click%20on%20image%20to%20zoom&p=PMC3&id=6981278_nihms-1543097-f0001.jpg))
+are also possible.
 
-With the simple example above and knowledge of Flywheel Gear Rules, you can create and execute complex workflows.
+With the simple example above and knowledge of Flywheel Gear Rules, you can create and
+execute complex workflows.
 
 ## Installation
 
@@ -159,16 +174,20 @@ See the included `dag_demo.ipynb` notebook for a complete workflow example.
 
 The following video demonstrates the prototype in action:
 
-[![DAG Prototype Video](https://img.youtube.com/vi/_0JUfkzFlS0/0.jpg)](https://www.youtube.com/watch?v=_0JUfkzFlS0)
+[![DAG Prototype
+Video](https://img.youtube.com/vi/_0JUfkzFlS0/0.jpg)](https://www.youtube.com/watch?v=_0JUfkzFlS0)
 
 ## Support
 
-For issues or questions, please open an issue on the [GitHub repository](https://github.com/joshicola/public_dag_prototype/issues).
+For issues or questions, please open an issue on the [GitHub
+repository](https://github.com/joshicola/public_dag_prototype/issues).
 
 ## Disclaimer
 
-This is a prototype and is not intended for production use. It is provided as-is and without warranty. Use at your own risk.
+This is a prototype and is not intended for production use. It is provided as-is and
+without warranty. Use at your own risk.
 
-This project was created as a personal passion project and is not affiliated with Flywheel in any way.
+This project was created as a personal passion project and is not affiliated with
+Flywheel in any way.
 
 If you have questions, feedback, or suggestions, please feel free to reach out.
